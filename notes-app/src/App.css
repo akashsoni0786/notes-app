@@ -7,11 +7,15 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  background: #202124;
+  /* background: #202124; */
+  background-image: url("https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 ::selection{
   color: #fff;
-  background: #B64FC8;
+  background: #FE07FE;
 }
 
 .wrapper{
@@ -43,14 +47,14 @@ body{
 .add-box .icon{
   height: 78px;
   width: 78px;
-  color: #B64FC8;
+  color: #FE07FE;
   font-size: 40px;
   border-radius: 50%;
   justify-content: center;
-  border: 2px dashed #B64FC8;
+  border: 2px dashed #FE07FE;
 }
 .add-box p{
-  color: #B64FC8;
+  color: #FE07FE;
   font-weight: 500;
   margin-top: 20px;
 }
@@ -157,7 +161,7 @@ body{
 .content header p{
   font-size: 20px;
   font-weight: 500;
-  color: #B64FC8 !important;
+  color: #FE07FE !important;
   z-index: 99 !important;
 }
 .content header i{
@@ -202,7 +206,7 @@ form button{
   cursor: pointer;
   font-size: 17px;
   border-radius: 4px;
-  background: #B64FC8;
+  background: #FE07FE;
 }
 .modaldiv{
   position: absolute;
@@ -225,7 +229,7 @@ form button{
 
 }
 .read:hover{
-  color: #B64FC8;
+  color: #FE07FE;
 }
 @media (max-width: 660px){
   .wrapper{

@@ -10,9 +10,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { contextname } from "./Context";
 import { Tooltip } from "@mui/material";
+import {useNavigate} from "react-router-dom"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
+  color: "black",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
@@ -28,6 +30,8 @@ const Search = styled("div")(({ theme }) => ({
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
+  // color:"red",
+  // backgroundColor:"red",
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
@@ -37,7 +41,10 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+  color: "black",
+  border:"1px solid #FE07FE",
+  borderRadius:"5px",
+  backgroundColor: "transparent",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -54,6 +61,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const contxt = React.useContext(contextname);
+  const navigate = useNavigate()
   const searchfunc = (e) => {
     var show = [];
     contxt.allnotes.map((i) => {
@@ -63,42 +71,51 @@ export default function Navbar() {
     });
     contxt.setRef(show);
   };
+  const logout = ()=>{
+    contxt.setLogin("");
+    navigate("/")
+    
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
         sx={{
-          backgroundColor: "#B64FC8",
-          
-          
+          backgroundColor: "#FF73E1",
         }}
       >
-        <Toolbar sx={{display: "flex",
-          justifyContent: "space-between",width:"100%"}}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
           <img
             alt=""
             src="https://cdn-icons-png.flaticon.com/512/889/889648.png"
             style={{ width: "40px" }}
           />
-
           <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
+            <SearchIconWrapper sx={{ color: "black" }}>
+              <SearchIcon sx={{ color: "black" }} />
             </SearchIconWrapper>
             <StyledInputBase
               onChange={(e) => {
                 searchfunc(e.target.value);
               }}
-              placeholder="Search…"
+              placeholder="Search title..…"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-        <Tooltip title="Logout">
-          <img
-            alt=""
-            src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png"
-            style={{ width: "40px",cursor:"pointer" }}
-          /></Tooltip>
+          <Tooltip title="Logout">
+            <img
+            onClick={logout}
+              alt=""
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png"
+              style={{ width: "40px", cursor: "pointer" }}
+            />
+          </Tooltip>
         </Toolbar>
       </AppBar>
     </Box>
