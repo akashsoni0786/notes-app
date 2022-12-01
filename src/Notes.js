@@ -14,12 +14,9 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-// import IconButton from '@mui/material/IconButton';
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { NavigateBefore, SentimentVerySatisfiedOutlined } from "@mui/icons-material";
-import {useNavigate} from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -70,7 +67,7 @@ const style = {
 };
 function NotesPage() {
   const contxt = React.useContext(contextname);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [title, setTitle] = React.useState("");
   const [desc, setDesc] = React.useState("");
   const [editid, setEditId] = React.useState("");
@@ -95,8 +92,6 @@ function NotesPage() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
- 
 
   const addnote = (e) => {
     e.preventDefault();
@@ -168,19 +163,17 @@ function NotesPage() {
     });
   };
 
- 
   const [readtitle, setReadtitle] = React.useState("");
   const [readdesc, setReaddesc] = React.useState("");
 
   const handleClickread = (e) => {
     setOpenread(true);
-    contxt.ref.map(i=>{
-      if(i.id === e){
+    contxt.ref.map((i) => {
+      if (i.id === e) {
         setReadtitle(i.title);
         setReaddesc(i.description);
       }
-    })
-
+    });
   };
 
   const handleCloseread = () => {
@@ -203,15 +196,12 @@ function NotesPage() {
             {readtitle}
           </BootstrapDialogTitle>
           <DialogContent dividers>
-            <Typography gutterBottom>
-              {readdesc}
-            </Typography>
-          
+            <Typography gutterBottom>{readdesc}</Typography>
           </DialogContent>
           <DialogActions>
             <Button autoFocus onClick={handleCloseread}>
-            Close document
-          </Button>
+              Close document
+            </Button>
           </DialogActions>
         </BootstrapDialog>
         <Modal
@@ -322,7 +312,12 @@ function NotesPage() {
                       <span>{i.description}</span>
                     </div>
                     <div className="bottom-content">
-                      <span onClick={()=>{handleClickread(i.id)}} className="read">
+                      <span
+                        onClick={() => {
+                          handleClickread(i.id);
+                        }}
+                        className="read"
+                      >
                         Read
                       </span>
                       <span>{i.date}</span>

@@ -3,14 +3,11 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { contextname } from "./Context";
 import { Tooltip } from "@mui/material";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -30,8 +27,6 @@ const Search = styled("div")(({ theme }) => ({
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  // color:"red",
-  // backgroundColor:"red",
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
@@ -42,8 +37,8 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "black",
-  border:"1px solid #FE07FE",
-  borderRadius:"5px",
+  border: "1px solid #FE07FE",
+  borderRadius: "5px",
   backgroundColor: "transparent",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
@@ -61,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const contxt = React.useContext(contextname);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const searchfunc = (e) => {
     var show = [];
     contxt.allnotes.map((i) => {
@@ -71,11 +66,10 @@ export default function Navbar() {
     });
     contxt.setRef(show);
   };
-  const logout = ()=>{
+  const logout = () => {
     contxt.setLogin("");
-    navigate("/")
-    
-  }
+    navigate("/");
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -110,7 +104,7 @@ export default function Navbar() {
           </Search>
           <Tooltip title="Logout">
             <img
-            onClick={logout}
+              onClick={logout}
               alt=""
               src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png"
               style={{ width: "40px", cursor: "pointer" }}

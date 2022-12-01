@@ -1,22 +1,20 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { contextname } from "./Context";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 export default function SignUp() {
   const contxt = React.useContext(contextname);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [fname, setFname] = React.useState("");
   const [lname, setLname] = React.useState("");
   const [mail, setEmail] = React.useState("");
@@ -38,7 +36,7 @@ export default function SignUp() {
       setLname("");
       setEmail("");
       setPass("");
-      navigate("/")
+      navigate("/");
     }
   };
   return (
@@ -65,12 +63,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Register
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={signupfunc}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" noValidate onSubmit={signupfunc} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -81,7 +74,9 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                  onChange={(e)=>{setFname(e.target.value)}}
+                  onChange={(e) => {
+                    setFname(e.target.value);
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -92,7 +87,9 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                  onChange={(e)=>{setLname(e.target.value)}}
+                  onChange={(e) => {
+                    setLname(e.target.value);
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -103,7 +100,9 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  onChange={(e)=>{setEmail(e.target.value)}}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -115,7 +114,9 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                  onChange={(e)=>{setPass(e.target.value)}}
+                  onChange={(e) => {
+                    setPass(e.target.value);
+                  }}
                 />
               </Grid>
             </Grid>
@@ -129,7 +130,13 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link sx={{cursor:"pointer"}} onClick={()=>{ navigate("/")}} variant="body2">
+                <Link
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  variant="body2"
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>
